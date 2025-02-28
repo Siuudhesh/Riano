@@ -17,6 +17,7 @@ export default function FeesScreen({ navigation }) {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const currentYear = new Date().getFullYear();
+  const currentMonth = months[new Date().getMonth()];
 
   useEffect(() => {
     fetchData();
@@ -102,7 +103,7 @@ export default function FeesScreen({ navigation }) {
           <Text style={styles.amountText}>💰 Collected: ₹{getTotalAmountCollected(student.id).toLocaleString()}</Text>
         </View>
         <TouchableOpacity style={styles.payButton} onPress={() => markFeeAsPaid(student.id)}>
-          <Text style={styles.payButtonText}>Mark Fee Paid</Text>
+          <Text style={styles.payButtonText}>Mark {currentMonth} Paid</Text>
         </TouchableOpacity>
       </View>
     </TouchableOpacity>
