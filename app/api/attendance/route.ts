@@ -64,7 +64,10 @@ export async function POST(req: Request) {
 
     // THE ULTIMATE FIX: If the grid is too small, force the code to expand the sheet!
     if (nextRowNumber > logSheet.rowCount) {
-      await logSheet.resize({ rowCount: logSheet.rowCount + 50 });
+      await logSheet.resize({ 
+        rowCount: logSheet.rowCount + 50, 
+        columnCount: logSheet.columnCount 
+      });
     }
 
     // Now it is 100% safe to load the cells

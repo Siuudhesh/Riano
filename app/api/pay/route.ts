@@ -38,7 +38,10 @@ export async function POST(req: Request) {
 
     // THE ULTIMATE FIX: Expand the sheet if we run out of room
     if (nextRowNumber > logSheet.rowCount) {
-      await logSheet.resize({ rowCount: logSheet.rowCount + 50 });
+      await logSheet.resize({ 
+        rowCount: logSheet.rowCount + 50, 
+        columnCount: logSheet.columnCount 
+      });
     }
 
     await logSheet.loadCells(`A${nextRowNumber}:C${nextRowNumber}`);
